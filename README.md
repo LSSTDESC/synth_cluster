@@ -1,2 +1,2 @@
 # synth_cluster
-Synthetic galaxy cluster generation for member catalogs and source injection
+Synthetic galaxy cluster generator for member catalogs and source injection
