@@ -18,7 +18,7 @@ setup(name="skysampler_lsst",
 # create user project file
 home_path = os.path.expanduser("~")
 project_path = os.getcwd()
-with open(home_path + "/.skysampler-lsst.yaml", "w+") as file:
+with open(home_path + "/.skysampler_lsst.yaml", "w+") as file:
     message = "project_path: " + project_path + "/"
     file.write(message)
 
