@@ -4,7 +4,7 @@ import multiprocessing as mp
 import numpy as np
 import pandas as pd
 
-from skysampler.utils import partition
+from .utils import partition
 
 
 class KFoldCV(object):
