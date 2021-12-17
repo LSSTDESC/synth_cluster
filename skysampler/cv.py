@@ -9,6 +9,21 @@ from skysampler.utils import partition
 
 class KFoldCV(object):
     def __init__(self, cont, nfold=5, nprocess=100, seed=None):
+        """
+        K-fold crossvalidator for KDE containers
+
+        Parameters
+        ----------
+        cont: KDEContainer
+            KDE container for the data which will be cross validated
+        nfold: int
+            number of folds
+        nprocess: int
+            number of CPUs to use for scoring
+        seed: int
+            random seed for numpy random
+
+        """
         self.cont = cont
         self.cont.standardize_data()
         self.nfold = nfold
@@ -18,7 +33,20 @@ class KFoldCV(object):
 
         self.labels = self.rng.randint(0, self.nfold, len(self.cont.data))
 
-    def _loop_bandwidths(self, bandwidths):
+    def loop_bandwidths(self, bandwidths):
+        """
+        Loop over each bandwidth and evaluate K-fold scores
+
+        Parameters
+        -----------
+        bandwidths: list
+            bandwidths to evaluate
+
+        Returns
+        -------
+            list of scores for each bandwidth (each element is a list of K-scores for each fold)
+
+        """
         scores = []
         for bw in bandwidths:
             print(bw)
