@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 # if sys.version_info[0] != 3:
 #     sys.exit("Only python 3 is supported at the moment")
 
-setup(name="skysampler-lsst",
+setup(name="skysampler_lsst",
       packages=find_packages(),
       description="Generate random realizations of line-of-sights in optical sky surveys ",
       #install_requires=['numpy', 'scipy', 'pandas', 'astropy', 'healpy', 'fitsio', 'sklearn'],
@@ -18,7 +18,7 @@ setup(name="skysampler-lsst",
 # create user project file
 home_path = os.path.expanduser("~")
 project_path = os.getcwd()
-with open(home_path + "/.skysampler-lsst-lsst.yaml", "w+") as file:
+with open(home_path + "/.skysampler-lsst.yaml", "w+") as file:
     message = "project_path: " + project_path + "/"
     file.write(message)
 
