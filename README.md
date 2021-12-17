@@ -1,7 +1,5 @@
 # synth_cluster
 
-=================================================
-
 Synthetic galaxy cluster generator for member catalogs and source injection *by Tamas N. Varga. / GER-LMU-S3, PI-Seitz*
 
 Based on the research paper *Synthetic Galaxy Clusters and Observations Based on Dark Energy Survey Year 3 Data* [2102.10414](https://arxiv.org/abs/2102.10414)
@@ -23,6 +21,7 @@ Generating mock observations takes place in a data driven way, i.e. clusters are
 the survey, not according to our theoretical models for them. Hence the products are not critically dependent
 on our physical assumptions, only on survey conditions.
 
+**DES Y3 oriented version of this package is available at https://github.com/vargatn/skysampler**
 
 ## Tutorials
 
