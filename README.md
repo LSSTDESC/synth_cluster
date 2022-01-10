@@ -29,5 +29,5 @@ There are a set of jupyter notebooks to illustrate the use-case of this software
 
 1) Data Preparation [snyth_cluster_tutorial-1_preparation](notebooks/synth_cluster_tutorial-1_preparation.ipynb)
 2) Emulate and extapolate [snyth_cluster_tutorial-2](notebooks/synth_cluster_tutorial-2.ipynb)
-3) Create mock catalog [snyth_cluster_tutorial-1_preparation](notebooks/synth_cluster_tutorial-3_generation.ipynb)
-<!-- 4) Render with source injection pipeline [snyth_cluster_tutorial-1_preparation](notebooks/snyth_cluster_tutorial-1_preparation.ipynb) -->
+3) Create mock catalog [snyth_cluster_tutorial-3_preparation](notebooks/synth_cluster_tutorial-3_generation.ipynb)
+4) Render with source injection pipeline [snyth_cluster_tutorial-4_render](notebooks/snyth_cluster_tutorial-4_render.ipynb)
