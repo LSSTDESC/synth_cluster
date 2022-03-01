@@ -1,5 +1,5 @@
 """
-Multiply two PDFs represented as MCMC chains
+Multiply two PDFs represented as a set of samples or MCMC chains
 """
 
 import numpy as np
