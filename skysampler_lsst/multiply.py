@@ -8,4 +8,8 @@ import sklearn.neighbors as neighbors
 import sklearn.decomposition as decomp
 import copy
 import glob
+import multiprocessing as mp
+
+from .utils import partition
+
 
