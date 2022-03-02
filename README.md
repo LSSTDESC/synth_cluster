@@ -31,3 +31,8 @@ There are a set of jupyter notebooks to illustrate the use-case of this software
 2) Emulate and extapolate [snyth_cluster_tutorial-2](notebooks/synth_cluster_tutorial-2.ipynb)
 3) Create mock catalog [snyth_cluster_tutorial-3_preparation](notebooks/synth_cluster_tutorial-3_generation.ipynb)
 4) Render with source injection pipeline [snyth_cluster_tutorial-4_render](notebooks/snyth_cluster_tutorial-4_render.ipynb)
+
+## Utility for multiplying PDFs
+represented as a set of points or mcmc samples
+
+See this  [tutorial](notebooks/multiply/Multiply_likelihood_in_chain_PART-1.ipynb)
