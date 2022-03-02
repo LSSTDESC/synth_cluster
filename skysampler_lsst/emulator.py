@@ -14,7 +14,7 @@ import pandas as pd
 import copy
 import glob
 
-from .pca import KDEContainer
+from .kde import KDEContainer
 
 try:
     from collections.abc import Iterable

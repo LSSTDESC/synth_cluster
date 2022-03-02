@@ -23,6 +23,7 @@ def weighted_std(values, weights):
 
 
 class KDEContainer(object):
+    """Represent dataset as a KDE in it's eigne-frame (PCA)"""
     _default_subset_sizes = (2000, 5000, 10000)
     _kernel = "gaussian"
     # _kernel = "tophat"
@@ -33,6 +34,20 @@ class KDEContainer(object):
     _jacobian_det = None
 
     def __init__(self, raw_data, weights=None, transform_params=None, seed=None):
+        """
+        Represent dataset as a KDE in it's eigne-frame (PCA)
+
+        Parameters
+        ----------
+        raw_data: pd.DataFrame
+            input data to represent
+        weights: np.array
+            weight for each element
+        transform_params: bool
+            deprecated
+        seed: int
+            np random seed
+        """
         if seed is not None:
             self.rng = np.random.RandomState(seed)
         else:
@@ -51,6 +66,21 @@ class KDEContainer(object):
 
     @staticmethod
     def _weight_multiplicator(arr, weights):
+        """
+        turns element wise-weight into multiplicitiy of elements in list
+
+        Parameters
+        ----------
+        arr: np.array
+            array with weights
+        weights: np.array
+            weights
+
+        Returns
+        -------
+        
+
+        """
         multiplier = np.round(weights)
         newarr = []
         for i in np.arange(len(arr)):
