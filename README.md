@@ -47,16 +47,15 @@ $cd synth_cluster
 Uncomment line below if you want to install a branch other than main
 git checkout <branch we want to install>  # Not needed if main branch being used.
 This will cause pip's --user install to use this new directory
-
+```
 $python setup.py install --user
 $export PATH=$PYTHONUSERBASE/bin:$PATH           # Not necessary for synth_cluster since it doesn't create a bin directory
 $export PYTHONPATH=$PYTHONUSERBASE/synth_cluster:$PYTHONPATH   # Makes sure python can find synth_cluster's library
-
+```
 To make this available in NERSC Jupyter, update your $HOME/.bashrc
 
 ```
 $export PYTHONUSERBASE=$PSCRATCH/cl-area
-$export
 $PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
 ```
 
