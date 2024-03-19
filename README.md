@@ -36,27 +36,27 @@ There are a set of jupyter notebooks to illustrate the use-case of this software
 ## Instructions for installation on nersc to work through the example notebooks
 
 ```
-$python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest  # might need to use desc-stack
-$cd $PSCRATCH   # I just chose PSCRATCH.. you could use another area
-$mkdir cl-area
-$export PYTHONUSERBASE=$PWD/cl-area   
-$git checkout git@github.com:vargatn/synth_cluster.git
-$cd synth_cluster
+python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest  # might need to use desc-stack
+cd $PSCRATCH   # I just chose PSCRATCH.. you could use another area
+mkdir cl-area
+export PYTHONUSERBASE=$PWD/cl-area   
+git clone https://github.com/LSSTDESC/synth_cluster.git
+cd synth_cluster
 ```
 
 Uncomment line below if you want to install a branch other than main
 git checkout <branch we want to install>  # Not needed if main branch being used.
 This will cause pip's --user install to use this new directory
 ```
-$python setup.py install --user
-$export PATH=$PYTHONUSERBASE/bin:$PATH           # Not necessary for synth_cluster since it doesn't create a bin directory
-$export PYTHONPATH=$PYTHONUSERBASE/synth_cluster:$PYTHONPATH   # Makes sure python can find synth_cluster's library
+pip install --user --no-deps --no-build-isolation .
+export PATH=$PYTHONUSERBASE/bin:$PATH           # Not necessary for synth_cluster since it doesn't create a bin directory
+export PYTHONPATH=$PYTHONUSERBASE/synth_cluster:$PYTHONPATH   # Makes sure python can find synth_cluster's library
 ```
 To make this available in NERSC Jupyter, update your $HOME/.bashrc
 
 ```
-$export PYTHONUSERBASE=$PSCRATCH/cl-area
-$PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
+export PYTHONUSERBASE=$PSCRATCH/cl-area
+PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
 ```
 
 1) Start up jupyter.nersc.gov and open up the example jupyter notebooks. (with the environment ‘desk-stack’, if you have followed the first line, python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest)
@@ -68,10 +68,10 @@ Note, while I can import skysampler after installation of synth_cluster, skysamp
 ## Instructions for installation on your local computer
 
 ```
-$git clone https://github.com/LSSTDESC/synth_cluster.git
-$cd synth_cluster
-$python setup.py install
-$export PYTHONPATH=$PATH_to_SYNTH_CLUSTER/synth_cluster:$PYTHONPATH
+git clone https://github.com/LSSTDESC/synth_cluster.git
+cd synth_cluster
+python setup.py install
+export PYTHONPATH=$PATH_to_SYNTH_CLUSTER/synth_cluster:$PYTHONPATH
 ```
 
 ## Utility for multiplying PDFs
