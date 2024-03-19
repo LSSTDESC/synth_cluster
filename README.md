@@ -56,7 +56,7 @@ To make this available in NERSC Jupyter, update your $HOME/.bashrc
 
 ```
 export PYTHONUSERBASE=$PSCRATCH/cl-area
-PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
+export PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
 ```
 
 1) Start up jupyter.nersc.gov and open up the example jupyter notebooks. (with the environment ‘desk-stack’, if you have followed the first line, python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest)
