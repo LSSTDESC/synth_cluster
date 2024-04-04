@@ -35,43 +35,52 @@ There are a set of jupyter notebooks to illustrate the use-case of this software
 
 ## Instructions for installation on nersc to work through the example notebooks
 
+Run the below in your terminal after you ssh into perlmutter.  You need to install from your terminal, *not* the terminal on NERSC Jupyter.  Otherwise, you will not have the subpackage `skysampler_lsst` available.
 ```
-$python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest  # might need to use desc-stack
-$cd $PSCRATCH   # I just chose PSCRATCH.. you could use another area
-$mkdir cl-area
-$export PYTHONUSERBASE=$PWD/cl-area   
-$git checkout git@github.com:vargatn/synth_cluster.git
-$cd synth_cluster
+ssh <username>@perlmutter.nersc.gov
 ```
+Note, you will need to have your two-factor authentication in hand to include the OTP after your password.
 
-Uncomment line below if you want to install a branch other than main
+Now, you'll want to install this package in the desc-stack-weekly-latest environment. 
+```
+python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest  
+cd $PSCRATCH   # I just chose PSCRATCH.. you could use another area
+mkdir cl-area
+export PYTHONUSERBASE=$PWD/cl-area   
+# Clone this repo in the cl-area 
+cd cl-area
+git clone https://github.com/LSSTDESC/synth_cluster.git
+cd synth_cluster
+```
+If you want to install a branch other than main, 
+```
 git checkout <branch we want to install>  # Not needed if main branch being used.
-This will cause pip's --user install to use this new directory
 ```
-$python setup.py install --user
-$export PATH=$PYTHONUSERBASE/bin:$PATH           # Not necessary for synth_cluster since it doesn't create a bin directory
-$export PYTHONPATH=$PYTHONUSERBASE/synth_cluster:$PYTHONPATH   # Makes sure python can find synth_cluster's library
+This will cause pip's --user install to use this new directory.  Alternatively, you can simply install the main branch and continue below. 
 ```
-To make this available in NERSC Jupyter, update your $HOME/.bashrc
+pip install --user --no-deps --no-build-isolation .
+export PATH=$PYTHONUSERBASE/bin:$PATH           # Not necessary for synth_cluster since it doesn't create a bin directory
+export PYTHONPATH=$PYTHONUSERBASE/synth_cluster:$PYTHONPATH   # Makes sure python can find synth_cluster's library
+```
+You have now installed the package!  Now, to make this available in NERSC Jupyter, you will need to add the following lines to the end of your $HOME/.bashrc
+```
+export PYTHONUSERBASE=$PSCRATCH/cl-area
+export PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
+```
+Note:  If you have, by default, a line in your bashrc that reads `#module load python # Also loads anaconda`, you may need to comment this out to get the package fully working in NERSC Jupyter.  Now, you should be able to run through the tutorials in jupyter.nersc.gov.
 
-```
-$export PYTHONUSERBASE=$PSCRATCH/cl-area
-$PYTHONPATH=$PYTHONUSERBASE/lib/python3.11/site-packages:$PYTHONPATH
-```
-
-1) Start up jupyter.nersc.gov and open up the example jupyter notebooks. (with the environment ‘desk-stack’, if you have followed the first line, python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest)
+1) Start up jupyter.nersc.gov and open up the example jupyter notebooks. (with the environment ‘desk-stack-weekly-latest’, if you have followed the first line, python /global/common/software/lsst/common/miniconda/start-kernel-cli.py desc-stack-weekly-latest)
 2) Note, you will need to update paths since the notebook is currently pointing to some local directory, for example we can update to use: 
 redmapper_path = "/global/cfs/cdirs/lsst/shared/xgal/cosmoDC2/addons/redmapper_v1.1.4/cosmoDC2_v1.1.4_redmapper_v0.7.5_clust.h5"
-Note, while I can import skysampler after installation of synth_cluster, skysampler_lsst does not seem to be available in the version of the code in master or on the lsst_dev branch. 
 
 
 ## Instructions for installation on your local computer
 
 ```
-$git clone https://github.com/LSSTDESC/synth_cluster.git
-$cd synth_cluster
-$python setup.py install
-$export PYTHONPATH=$PATH_to_SYNTH_CLUSTER/synth_cluster:$PYTHONPATH
+git clone https://github.com/LSSTDESC/synth_cluster.git
+cd synth_cluster
+python setup.py install
+export PYTHONPATH=$PATH_to_SYNTH_CLUSTER/synth_cluster:$PYTHONPATH
 ```
 
 ## Utility for multiplying PDFs
